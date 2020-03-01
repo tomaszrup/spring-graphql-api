@@ -8,8 +8,8 @@ import org.bson.types.ObjectId;
 @Getter
 public class BookDto {
 
-  private ObjectId id;
+  private String   id;
   private String   name;
   private String   description;
-  private ObjectId authorId;
+  private String   authorId;
 }

@@ -21,10 +21,10 @@ class Book {
 
   public BookDto dto() {
     return BookDto.builder()
-        .id(id)
+        .id(id.toHexString())
         .name(name)
         .description(description)
-        .authorId(authorId)
+        .authorId(authorId.toHexString())
         .build();
   }
 
