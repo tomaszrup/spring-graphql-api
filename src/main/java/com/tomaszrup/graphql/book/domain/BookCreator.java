@@ -8,7 +8,7 @@ class BookCreator {
 
   public Book from(BookCreationDto bookCreationDto) {
     return Book.builder()
-        .authorId(new ObjectId(bookCreationDto.getAuthorId()))
+        .authorId(bookCreationDto.getAuthorId())
         .description(bookCreationDto.getDescription())
         .name(bookCreationDto.getName())
         .build();
