@@ -1,13 +1,15 @@
 package com.tomaszrup.graphql.book.domain.dto;
 
-import lombok.Builder;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Setter
 @Getter
-public class BookDto {
-
-  private String   id;
+public class BookCreationDto {
   private String   name;
   private String   description;
   private String   authorId;

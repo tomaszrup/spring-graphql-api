@@ -1,6 +1,9 @@
 package com.tomaszrup.graphql.book.domain;
 
+import com.tomaszrup.graphql.book.domain.dto.BookCreationDto;
 import com.tomaszrup.graphql.book.domain.dto.BookDto;
+import io.leangen.graphql.annotations.GraphQLArgument;
+import io.leangen.graphql.annotations.GraphQLMutation;
 import io.leangen.graphql.annotations.GraphQLQuery;
 import io.leangen.graphql.spqr.spring.annotations.GraphQLApi;
 import java.util.List;
@@ -18,8 +21,9 @@ public class BookFacade {
     this.bookCreator = bookCreator;
   }
 
-  public BookDto save(BookDto bookDto) {
-    return bookDto;
+  @GraphQLMutation(name = "createBook")
+  public BookDto save(@GraphQLArgument(name = "book") BookCreationDto bookCreationDto) {
+    return bookRepository.save(bookCreator.from(bookCreationDto)).dto();
   }
 
   @GraphQLQuery(name = "book")
