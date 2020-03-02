@@ -13,6 +13,7 @@ repositories {
 }
 
 dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-security'
 	compile group: 'io.leangen.graphql', name: 'graphql-spqr-spring-boot-starter', version: '0.0.4'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 
