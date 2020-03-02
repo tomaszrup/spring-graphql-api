@@ -1,4 +1,4 @@
-package com.tomaszrup.graphql.book.domain.dto;
+package com.tomaszrup.graphql.book.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

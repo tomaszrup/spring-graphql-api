@@ -1,6 +1,6 @@
-package com.tomaszrup.graphql.book.domain;
+package com.tomaszrup.graphql.book;
 
-import com.tomaszrup.graphql.book.domain.dto.BookDto;
+import com.tomaszrup.graphql.book.dto.BookDto;
 import com.tomaszrup.graphql.infrastructure.MongoCollections;
 import lombok.Builder;
 import lombok.Getter;

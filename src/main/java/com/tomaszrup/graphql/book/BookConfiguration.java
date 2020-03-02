@@ -1,4 +1,4 @@
-package com.tomaszrup.graphql.book.domain;
+package com.tomaszrup.graphql.book;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

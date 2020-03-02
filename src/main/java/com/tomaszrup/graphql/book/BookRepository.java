@@ -1,6 +1,6 @@
-package com.tomaszrup.graphql.book.domain;
+package com.tomaszrup.graphql.book;
 
-import com.tomaszrup.graphql.book.domain.exception.BookNotFoundException;
+import com.tomaszrup.graphql.book.exception.BookNotFoundException;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 

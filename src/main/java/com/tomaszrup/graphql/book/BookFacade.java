@@ -1,8 +1,10 @@
-package com.tomaszrup.graphql.book.domain;
+package com.tomaszrup.graphql.book;
 
-import com.tomaszrup.graphql.book.domain.dto.BookCreationDto;
-import com.tomaszrup.graphql.book.domain.dto.BookDto;
+import com.tomaszrup.graphql.author.dto.AuthorDto;
+import com.tomaszrup.graphql.book.dto.BookCreationDto;
+import com.tomaszrup.graphql.book.dto.BookDto;
 import io.leangen.graphql.annotations.GraphQLArgument;
+import io.leangen.graphql.annotations.GraphQLContext;
 import io.leangen.graphql.annotations.GraphQLMutation;
 import io.leangen.graphql.annotations.GraphQLQuery;
 import io.leangen.graphql.spqr.spring.annotations.GraphQLApi;
@@ -27,12 +29,17 @@ public class BookFacade {
   }
 
   @GraphQLQuery(name = "book")
-  public BookDto find(String id) {
+  public BookDto find(@GraphQLArgument(name = "id") String id) {
     return bookRepository.findByIdOrThrow(new ObjectId(id)).dto();
   }
 
   @GraphQLQuery(name = "books")
   public List<BookDto> findAllBooks() {
+    return bookRepository.findAll().stream().map(Book::dto).collect(Collectors.toList());
+  }
+
+  @GraphQLQuery(name = "books")
+  public List<BookDto> findAllBooksByAuthor(@GraphQLContext AuthorDto authorDto) {
     return bookRepository.findAll().stream().map(Book::dto).collect(Collectors.toList());
   }
 

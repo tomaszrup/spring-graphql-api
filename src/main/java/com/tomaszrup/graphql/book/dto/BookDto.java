@@ -1,5 +1,6 @@
-package com.tomaszrup.graphql.book.domain.dto;
+package com.tomaszrup.graphql.book.dto;
 
+import io.leangen.graphql.annotations.GraphQLIgnore;
 import lombok.Builder;
 import lombok.Getter;
 import org.bson.types.ObjectId;
@@ -17,7 +18,8 @@ public class BookDto {
     return id.toHexString();
   }
 
-  public String getAuthorId() {
-    return authorId.toHexString();
+  @GraphQLIgnore
+  public ObjectId getAuthorId() {
+    return authorId;
   }
 }
