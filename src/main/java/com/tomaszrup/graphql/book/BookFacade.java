@@ -34,13 +34,13 @@ public class BookFacade {
   }
 
   @GraphQLQuery(name = "books")
-  public List<BookDto> findAllBooks() {
+  public List<BookDto> findAll() {
     return bookRepository.findAll().stream().map(Book::dto).collect(Collectors.toList());
   }
 
   @GraphQLQuery(name = "books")
-  public List<BookDto> findAllBooksByAuthor(@GraphQLContext AuthorDto authorDto) {
-    return bookRepository.findAll().stream().map(Book::dto).collect(Collectors.toList());
+  public List<BookDto> findAllByAuthor(@GraphQLContext AuthorDto authorDto) {
+    return bookRepository.findAllByAuthorId(new ObjectId(authorDto.getId())).stream().map(Book::dto).collect(Collectors.toList());
   }
 
 }
